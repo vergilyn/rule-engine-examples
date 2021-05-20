@@ -4,6 +4,39 @@ SEE:
 + [easy-rules/wiki, Tutorials](https://github.com/j-easy/easy-rules/wiki/hello-world)
 + [easy-rules-tutorials](https://github.com/j-easy/easy-rules/tree/easy-rules-4.1.0/easy-rules-tutorials)
 
+`RuleListener` & `RuleEngineListener`:
+```
+# see: `org.jeasy.rules.core.DefaultRulesEngine.fire`
+
+rulesEngineListener.beforeEvaluate(rule, facts);
+for (Rule rule : rules) {
+  if(!ruleListener.beforeEvaluate(rule, facts)){
+     continue;
+  }
+
+  boolean evaluationResult;
+  try{
+      evaluationResult = rule.evaluate(facts);
+  }catch(Exception e){
+      ruleListener.onEvaluationError(rule, facts, e);
+  }
+
+  if(evaluationResult){
+      ruleListener.afterEvaluate(rule, facts, true);
+      try{
+          ruleListener.beforeExecute(rule, facts);
+          rule.execute(facts);
+          ruleListener.onSuccess(rule, facts
+      }catch(Exception e){
+          ruleListener.onFailure(rule, facts, exception)
+      }
+  }else{
+      ruleListener.afterEvaluate(rule, facts, false);
+  }
+} // for-end
+rulesEngineListener.afterExecute(rule, facts)
+```
+
 ## Q&A
 ### \[eg0001\] `IllegalAccessException: XxxRule with modifiers "public"`
 ```

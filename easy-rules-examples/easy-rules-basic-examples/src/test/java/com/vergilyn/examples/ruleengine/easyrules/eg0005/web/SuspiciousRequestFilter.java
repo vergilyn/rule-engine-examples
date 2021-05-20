@@ -24,9 +24,6 @@ public class SuspiciousRequestFilter implements Filter {
 	private Rules rules;
 	private RulesEngine rulesEngine;
 
-	public SuspiciousRequestFilter() {
-	}
-
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		System.out.println("[vergilyn] >>>> execute Filter#init()...");
@@ -41,7 +38,7 @@ public class SuspiciousRequestFilter implements Filter {
 			IOException, ServletException {
 		Facts facts = new Facts();
 		// facts.add("request", request);
-		facts.add(new Fact<ServletRequest>("request", request));
+		facts.add(new Fact<>("request", request));
 
 		rulesEngine.fire(rules, facts);
 		filterChain.doFilter(request, response);

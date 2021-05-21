@@ -6,13 +6,15 @@
 ## 个人使用体验和看法
 怎么说了，食之有一点点味，弃之无所谓....
 
-1. 使用足够简单，代码容易理解。
+1. 使用足够简单，源码容易理解。  
+(看了一点drools, easy-rules简单太多了)
 
-2. 规则管理起来可能不够直观。
+2. 规则管理起来可能不够直观。  
 比如`if-else`，需要建立2个rule，并且确保`condition`互斥。
 
 又比如`eg0002`，4个rule之间的执行顺序`priority`(0-1-2-3)不是很直观，
-如果此时需要在`1-2`增加一个Rule，则需要调整`1&2`对应Rule的`priority`。
+如果此时需要在`1-2`增加一个Rule，则需要调整`1&2`对应Rule的`priority`。  
+（管理起来困难）
 
 3. 稍微复杂一点的IF转换成easy-rule？
 + [`NestedIfTests.java`](easy-rules-basic-examples/src/test/java/com/vergilyn/examples/ruleengine/easyrules/eg1001/NestedIfTests.java)
@@ -46,6 +48,13 @@ if(a){
   }
 }
 ```
+
+5. rule与java代码解耦，及rule热更新
+参考`eg0003`，`easy-rule`支持MVEL，所以可以满足解耦。
+
+虽然未写demo实现，但是通过MVEL应该可以做到 rule热更新，只是可能需要自己写代码实现。  
+（类似ik-analyzer热更新dict）
+
 
 貌似可以通过`facts`传递，但是个人感觉这样的话隐蔽性忒高了，很难避免某个Rule中把facts内容修改了。
 并且，因为rule-priority加深了facts中参数的变更复杂度。

@@ -40,7 +40,7 @@ class MvelInEasyRulesTests {
 
 	@Test
 	@SneakyThrows
-	void mvelRule(){
+	public void mvelRule(){
 		//create a person instance (fact)
 		Person tom = new Person("Tom", 14);
 		Facts facts = new Facts();

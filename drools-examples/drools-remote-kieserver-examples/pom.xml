@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.vergilyn.examples</groupId>
+        <artifactId>drools-examples</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>drools-remote-kieserver-examples</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- For remote execution on controller -->
+        <dependency>
+            <groupId>org.kie.server</groupId>
+            <artifactId>kie-server-controller-client</artifactId>
+        </dependency>
+
+        <!-- For REST client -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+        </dependency>
+
+        <!-- For WebSocket client -->
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-websockets-jsr</artifactId>
+        </dependency>
+    </dependencies>
+</project>

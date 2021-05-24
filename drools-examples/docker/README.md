@@ -2,11 +2,25 @@
 
 + <https://hub.docker.com/u/jboss>
 
-** x-image VS x-image-showcase**
+<font color="RED">VFIXME 2021-05-24 >>>>  </font>
+1. 貌似 business-workbench 与 kie-server 并没有 连通！尝试过别名`kie-web` OR `kie_web`。
+
+**x-image VS x-image-showcase**
 
 |                 | x  | x-showcase                                               |
 |:----------------|:---|:---------------------------------------------------------|
 | Users and roles | -  | default(user: `kieserver`, pwd: `kieserver1!`, role: `kie-server`) |
+
+## port & http
+
+|                  | host:port  |                                                         |
+|:-----------------|:-----------|:--------------------------------------------------------|
+| kie-server       | 18080:8080 | http://localhost:18080/kie-server/services/rest/server/ |
+|                  |            | (swagger) http://127.0.0.1:18080/kie-server/docs/       |
+|                  |            |                                                         |
+| business-central | 18081:8080 | http://localhost:18081/business-central                 |
+|                  |            | (swagger) http://127.0.0.1:18081/business-central/docs/ |
+|                  | 18001:8001 | the GIT repository is SSH at port 8001                  |
 
 
 

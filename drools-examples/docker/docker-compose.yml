@@ -1,5 +1,17 @@
 version: "3.9"
 services:
+  # https://hub.docker.com/r/jboss/business-central-workbench-showcase
+  business-central-showcase:
+    image: jboss/business-central-workbench-showcase:7.54.0.Final
+    container_name: business-central-workbench-showcase-7.54.0.Final
+    volumes:
+      - "D:/docker-volumes/drools-7x/business-central/log/jboss-wildfly-standalone/:/opt/jboss/wildfly/standalone/log/"
+      - "D:/docker-volumes/drools-7x/business-central/wb_git:/opt/jboss/wildfly/bin/.niogit:Z"
+    ports:
+      # http://localhost:18081/business-central
+      - 18081:8080
+      - 18001:8001
+
   # https://hub.docker.com/r/jboss/kie-server-showcase
   kie-server-showcase:
     image: jboss/kie-server-showcase:7.54.0.Final
@@ -7,16 +19,7 @@ services:
     volumes:
       - "D:/docker-volumes/drools-7x/kie-server/log/jboss-wildfly-standalone/:/opt/jboss/wildfly/standalone/log/"
     ports:
-      # REST API service `http://localhost:8180/kie-server/services/rest/server/`
       - 18080:8080
-
-  # https://hub.docker.com/r/jboss/business-central-workbench-showcase
-  business-central-showcase:
-    image: jboss/business-central-workbench-showcase:7.54.0.Final
-    container_name: business-central-workbench-showcase-7.54.0.Final
-    volumes:
-      - "D:/docker-volumes/drools-7x/business-central/log/jboss-wildfly-standalone/:/opt/jboss/wildfly/standalone/log/"
-    ports:
-      # http://localhost:18081/business-central
-      - 18081:8080
-      - 18001:8001
+    links:
+      # In order to perform container linking with a jBPM / Drools Workbench image, the link alias must be `kie-wb`
+      - business-central-workbench-showcase-7.54.0.Final:kie-wb

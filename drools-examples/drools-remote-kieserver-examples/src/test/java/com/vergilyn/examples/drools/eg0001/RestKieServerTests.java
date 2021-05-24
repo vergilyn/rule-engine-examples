@@ -19,7 +19,7 @@ import org.kie.server.controller.client.KieServerControllerClientFactory;
  * @author vergilyn
  * @since 2021-05-21
  */
-public class RestKieServerTests extends AbstractRemoteKieServerTests {
+class RestKieServerTests extends AbstractRemoteKieServerTests {
 
 	@Test
 	public void connByRest() {

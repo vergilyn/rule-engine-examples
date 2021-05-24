@@ -16,20 +16,10 @@ import org.kie.api.runtime.KieSession;
 /**
  * @author vergilyn
  * @since 2021-05-21
+ *
+ * @see <a href="https://github.com/kiegroup/drools/tree/master/drools-examples/src/main/java/org/drools/examples/helloworld">examples, helloworld</a>
  */
 public class HelloworldDroolsTests {
-
-	@Test
-	void connKieServer(){
-		// KisService 配置信息设置
-//		KieServicesConfiguration kieServicesConfiguration =
-//				KieServicesFactory.newRestConfiguration(SERVER_URL, USERNAME, PASSWORD, 10000L);
-//		kieServicesConfiguration.setMarshallingFormat(MarshallingFormat.JSON);
-//
-//		// 创建规则服务客户端
-//		KieServicesClient kieServicesClient = KieServicesFactory.newKieServicesClient(kieServicesConfiguration);
-//		RuleServicesClient ruleServicesClient = kieServicesClient.getServicesClient(RuleServicesClient.class);
-	}
 
 	@Test
 	void helloworld() {
